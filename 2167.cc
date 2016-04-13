@@ -1,24 +1,23 @@
 #include <iostream>
 using namespace std;
+int space[301][301];
 int main(){
 	int N,M,K;
+	int sum = 0;
+	int i,j,x,y;
 	cin >> N >> M;
-	int space[N][M];
-	for(int X = 0 ; X < N ; X++){
-		for(int Y = 0 ; Y < M ; Y++){
-			cin >> space[X][Y];
+	for(int I = 0 ; I < N ; I++){
+		for(int J = 0 ; J < M ; J++){
+			cin >> space[I][J];
 		}
 	}
 	cin >> K;
-	int i[K],j[K],x[K],y[K];
 	for(int loop = 0 ; loop < K ; loop++){
-		cin >> i[loop] >> j[loop] >> x[loop] >> y[loop];
-	}
-	for(int loop = 0 ; loop < K ; loop++){
-		int sum = 0;
-		for(int X=i[loop]-1 ; X < M ; X++){
-			for(int Y = j[loop]-1 ; Y < N ; Y++){
-				sum += space[X][Y];
+		sum = 0;
+		cin >> i>>j>>x>>y;
+		for(int ii = i-1; ii <= x-1 ; ii++){
+			for(int jj = j-1 ; jj <= y-1 ; jj++){
+				sum += space[ii][jj];
 			}
 		}
 		cout << sum << endl;
